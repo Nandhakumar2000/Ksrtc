@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800,900" rel="stylesheet"></link>
+
+</head>
+<body >
+<style>
+body {
+  margin:0;
+  --size: 18px;
+  --m-bgcolor: #fff;
+  font-family: 'Montserrat'
+}
+
+#in_body{
+  --bg-Color:rgb(238,121,48);
+  background-color: var(--m-bgcolor);
+}
+#in_body_2{
+  --Color: orange;
+}
+#in_body_3{
+  --blue: rgb(16,46,88);
+}
+
+.topbar {
+  margin-left: 130px;
+  overflow: hidden;
+  background-color: var(--m-bgcolor);
+}
+
+.topbar a {
+  float: left;
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.a{
+  color: var(--bg-Color);
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#aplus{
+border: 1px solid;
+border-color: var(--bg-Color);
+padding: 5px;
+margin-left: 5px;
+}
+#a{
+  border: 1px solid;
+  border-color: var(--bg-Color);
+  padding: 5px;
+  margin-left: 5px;
+}
+#aminus{
+  border: 1px solid;
+  border-color: var(--bg-Color);
+  padding: 5px;
+  margin-left: 5px;
+}
+.nav {
+  overflow: hidden;
+  background-color: var(--m-bgcolor);;
+}
+#site-navigation{
+  margin-left: 100px;
+}
+.nav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: var(--size);
+}
+.nav a:hover {
+  color: black;
+}
+.nav .icon {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  #site-navigation{
+    margin-left: 0px;
+  }
+  .nav a:not(:first-child) {display: none;}
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  .nav.responsive {position: relative;}
+  .nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.column {
+  float: bottom;
+  height: 20px;
+
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.png_img {
+    background: var(--m-bgcolor);
+    border-radius: 50%;
+}
+.column:hover{
+  background-color: #fff;
+}
+
+.tcontainer {
+  border-top: 1px solid rgb(227,236,252);
+  margin-left: 100px;
+  width: 90%;
+  overflow: hidden; /* Hide scroll bar */
+}
+
+@media screen and (max-width: 600px) {
+  .tcontainer {
+    border-top: 1px solid rgb(227,236,252);
+    margin-left: 0px;
+  }
+}
+.ticker-wrap {
+  width: 50%;
+  padding-left: 100%;
+  background-color: rgb(248,250,254);
+  font-size: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px
+}
+
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 60s;
+}
+.ticker-move:hover{
+  animation-play-state: paused;
+}
+
+.ticker-item{
+  display: inline-block;
+  padding: 0 2rem;
+}
+#navBar{
+  --nav-Color: rgb(238,121,48);
+}
+.navBar {
+  overflow: hidden;
+  background-color: var(--nav-Color);
+  padding-left: 150px;
+}
+
+.navBar a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-right:1px solid #fff;
+}
+
+.navBar .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navBar a:not(:first-child) {display: none;}
+  .navBar a.icon {
+    float: right;
+    display: block;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navBar.responsive {position: relative;}
+  .navBar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navBar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-left: 10px;
+  background-color: rgb(74,104,217);
+  color: white;
+  cursor: pointer;
+  border: 0px;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+#form_fields{
+  --blue-back: rgb(16,46,88);
+  background-color: var(--blue-back);
+  padding: 0px;
+}
+#in_form{
+  --head-Colors: rgb(16,46,88);
+}
+#form_fields h2,#form_fields form{
+  color: var(--head-Colors);
+  margin: 0px;
+  margin-left: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#form_fields form input{
+   width: 150px;
+  height: 20px;
+  margin: 0px;
+}
+::placeholder{
+  color: var(--m-bgcolors);
+  font-size: 18px;
+}
+#form_fields form input[type="checkbox"]{
+  margin-left: 10px;
+  height: 10px;
+  width: 10px;
+}
+#form_fields form label{
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding-left: 1.3em;
+}
+.box li:before {
+  content: "\f018";
+  color: var(--bg-Color);
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em;
+  width: 1.3em;
+}
+#row2{
+  --bg-rowColor: #eee;
+}
+.column2 ul li a{
+  text-decoration: none;
+  color: var(--blue);
+}
+.column2 h3{
+  font-size: 20px;
+  color: var(--blue);
+}
+.column2 {
+  margin: 5%;
+  float: left;
+  width: 32%;
+  padding: 40px;
+  height: 350px;
+  background-color: var(--m-bgcolor);
+}
+
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row2{
+    background-color: var(--bg-rowColor);
+}
+@media screen and (max-width: 600px) {
+  #form_fields h2,#form_fields form{
+    margin-left: 30px;
+  }
+  .column2 {
+    margin: 0px;
+    padding-left: 0px;
+    width: 100%;
+  }
+  #form_fields form input{
+     width: 80%;
+    height: 20px;
+    margin: 3px;
+    margin: 0px;
+  }
+}
+.mySlides2 {display: none;}
+.slideshow-container2 {
+  max-width: 100%;
+
+  position: relative;
+  margin: auto;
+}
+.active2 {
+  background-color: #717171;
+}
+.fade2 {
+  -webkit-animation-name: fade2;
+  -webkit-animation-duration: 5s;
+  animation-name: fade2;
+  animation-duration: 5s;
+}
+@-webkit-keyframes fade2 {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade2 {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.holder {
+  background-color:var(--m-bgcolor);
+  width:90%;
+  height: 80%;
+  overflow:hidden;
+  padding:10px;
+}
+.holder .mask {
+  position: relative;
+  left: 0px;
+  top: 10px;
+  width:300px;
+  height:240px;
+  overflow: hidden;
+}
+.holder ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  position: relative;
+}
+.holder ul li {
+  color: var(--blue);
+  padding:7px 0px;
+}
+#row3{
+  --bottom-textColor: rgb(16,46,88);
+}
+.column3{
+  margin-left: 5%;
+  background-color: var(--blue-back);
+  float: left;
+  width: 18%;
+  padding: 10px;
+  height: 350px;
+}
+.column3 h3{
+  background-color: var(--blue-back);
+  color : #fff;
+  font-size: 25px;
+}
+.column3 ul li {
+  background-color: var(--blue-back);
+  padding: 6px;
+}
+.column3 ul li a{
+  text-decoration: none;
+  color : #fff;
+  background-color: var(--blue-back);
+}
+.row3:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row3{
+  background-color: var(--blue-back);
+}
+@media screen and (max-width: 600px) {
+  .column3 {
+    padding-left: 20px;
+    margin: 0px;
+    width: 100%;
+  }
+}
+#bottom{
+  margin-top: -25px;
+  padding: 10px;
+  height: 100px;
+background-color: var(--blue-back);
+}
+#bottom h5{
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#myTable td, #myTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even){background-color: #fff;}
+#myTable tr:nth-child(odd){background-color: #ddd;}
+
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--bg-Color);
+  color: white;
+}
+#modal_init_button {
+  background-color: var(--bg-Color);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--bg-Color);
+}
+
+.modal_input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modal_button {
+  background-color: var(--bg-Color);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal_button:hover {
+  opacity: 0.8;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 60%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+#autocomplete {
+  width: 100%;
+}
+
+</style>
+<div id="in_body">
+  <div id="in_body_2">
+    <div id="in_body_3">
+<div class="topbar">
+  <a href="#" class='a'>Welcome to KSRTC | <span> 9449596666</span></a>
+  <a href="#" style="margin-left: 200px" class='a' >Sign In</a>
+  <a href="#" class='a' >Screen Reader Access</a>
+  <a href="#" class='a' onclick="largeFont()" id="aplus" >A+</a>
+  <a href="#" class='a' onclick="mediumFont()" id="a" >A</a>
+  <a href="#" class='a' onclick="smallFont()" id="aminus" >A-</a>
+
+  <a href="#" class='a' onclick="sc()" style="border: 1px solid #000;padding: 5px;margin-left: 5px" >SC |</a>
+  <a href="#"  class='a' onclick="hc()"  style="border: 1px solid #000;padding: 5px;margin-left: 5px" >HC</a>
+
+<a href="#" onclick="document.getElementById('in_body').style.cssText = '--bg-Color: rgb(238,121,48)';document.getElementById('navBar').style.cssText = '--nav-Color: rgb(238,121,48)'"><div style="height: 10px; width: 10px; background-color: rgb(238,121,48)"></div></a>
+<a href="#"onclick="document.getElementById('in_body').style.cssText = '--bg-Color: rgb(71,120,225)';document.getElementById('navBar').style.cssText = '--nav-Color: rgb(71,120,225)'"><div style="height: 10px; width: 10px; background-color:  rgb(71,120,225)"></div></a>
+<a href="#" onclick="document.getElementById('in_body').style.cssText = '--bg-Color: rgb(77,146,60)';document.getElementById('navBar').style.cssText = '--nav-Color: rgb(77,146,60)'"><div style="height: 10px; width: 10px; background-color:   rgb(77,146,60)"></div></a>
+<a href="#" onclick="document.getElementById('in_body').style.cssText = '--bg-Color: rgb(70,51,14)';document.getElementById('navBar').style.cssText = '--nav-Color: rgb(70,51,14)'" ><div style="height: 10px; width: 10px; background-color: rgb(70,51,14)"></div></a>
+
+<a href="#"><div id="google_translate_element"></div></a>
+
+</div>
+
+<div class="nav" id="site-navigation">
+  <a href="#home"><img src = "https://ksrtc.in/oprs-web/_assets/images/web/logo.png"</img></a>
+  <a href="#" class='a'>
+
+    <div class="row">
+      <div class="column" >
+      <img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/franchaise.png" width="32" height="33" alt="">
+      </div>
+      <div class="column" class='a' >
+       <p>Operator/<br/>
+         franchaise</p>
+      </div>
+    </div>
+
+</a>
+  <a href="#" class='a'>
+
+    <div class="row">
+      <div class="column" >
+        <img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/mitra.png" width="32" height="33" alt="">
+      </div>
+      <div class="column" class='a' >
+       <p>Mitra</p>
+      </div>
+    </div>
+
+</a>
+  <a href="#" class='a'>
+
+    <div class="row">
+      <div class="column" >
+<img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/crm.png" width="32" height="32" alt="">      </div>
+      <div class="column" class='a'>
+       <p>CRM</p>
+      </div>
+    </div>
+
+  </a>
+
+  <a href="#" class='a'>
+
+    <div class="row">
+      <div class="column" >
+        <img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/email.png" width="32" height="32" alt="">
+</div>
+  <div class="column" class='a'>
+       <p>Ksrtc eMail</p>
+      </div>
+    </div>
+
+  </a>
+
+  <a href="#"  class='a'>
+    <div class="row">
+      <div class="column" >
+<img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/track.png" width="32" height="32" alt="">
+</div>
+      <div class="column">
+       <p>Track your<br/>
+       Order</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="#" class='a' >
+    <div class="row">
+      <div class="column" >
+<img  class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/app-store-2.png" width="32" height="32" alt="">
+</div>
+      <div class="column" >
+       <p>App<br/>Store</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="#" class='a' >
+    <div class="row">
+      <div class="column" >
+<img class = "png_img" src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/play-store-2.png" width="32" height="32" alt="">
+</div>
+      <div class="column"  >
+       <p>Play<br/>Store</p>
+      </div>
+    </div>
+  </a>
+
+<a href="#">
+<img src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/web/50-years-logo.png" alt="" style="width: 95px">
+</a>
+  <!--<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>-->
+</div>
+
+
+
+<div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
+    <div class="ticker-item">Call Centre number has been changed from 080-49596666 to 9449596666 w.e.f. 01-11-2019 | New Ambaari Dream Class(Volvo Multiaxle AC Sleeper) services introduced from Bengaluru to various destinations. | Now KSTDC Package tour bookings are available in KSRTC website | Newer version of KSRTC Android & IOS APP available. | Package Tour introduced from Bengaluru to Tirumala w.e.f. 12-05-2017. | Advance booking is allowed for 30 days. | Payment gateway charges withdrawn from 01-09-16. | New Non AC Sleeper service introduced from Bengaluru to Shrishailam. | New Pickup point: Goraguntepalya KLE Dental College, Bengaluru and Opposite to BMTC TTMC Bus Station, Hoskote.
+</div>
+  </div></div></div>
+
+<div id="navBar">
+  <div class="navBar">
+    <a href="#" >Home</a>
+    <a href="#">PNR Enquiry</a>
+    <a href="#">Cancel Tickets</a>
+    <a href="#">Package Tours</a>
+    <a href="#">Student Pass</a>
+    <a href="#">Recruitment</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()" style="Color: #fff">
+      <i class="fa fa-bars" style="color: #fff"></i>
+    </a>
+  </div>
+</div>
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/new/Mobile-App-Banner.jpg" style="width:100%; ">
+    </div>
+
+<div class="mySlides fade">
+  <img src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/new/flybus-banner-new-5.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/new/flybus-banner-new-6.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="http://static.abhibus.com/ks/ksrtc/web/_assets/images/new/bhim-app-banner_012019.jpg" style="width:100%">
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div id="form_fields">
+  <div id="in_form">
+  <h2>Book Your Tickets Now!</h2>
+<form class="form-inline" action="/action_page.php">
+  <input type="text"  placeholder="&#xf041; Leaving From:" style="font-family:Arial, FontAwesome"  name="email">
+  <input type="text" placeholder="&#xf041; Going To:" style="font-family:Arial, FontAwesome">
+  <input type="text" placeholder="&#xf073; Date of Departure :" style="font-family:Arial, FontAwesome">
+  <input type="text" placeholder="&#xf073; Date of Return :" style="font-family:Arial, FontAwesome">
+  <label>
+  <input type="checkbox" name="remember"> Single Lady
+</label>
+  <button type="submit" style="font-family:Arial, FontAwesome">Search for Bus &#xF002;</button>
+</form>
+<div>
+</div>
+
+
+<div id="row2">
+  <table id="myTable">
+    <tr>
+      <th>S.No</th>
+      <th>Service Start Point</th>
+      <th>Destination</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  <tr>
+    <td colspan="5" style="text-align:center; background-color:#fff"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="modal_init_button"><i class="fa fa-plus"></i>Add Bus</button>
+</td>
+  </tr>
+  </table>
+<div class="row2">
+
+  <div class="column2">
+    <h3>Popular Routes</h3>
+    <div class="slideshow-container2">
+    <div class="mySlides2 fade2" >
+      <div>
+        <ul class="box" >
+          <li>
+  											<a href="#"> KIAL
+  												- Mysuru</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Coimbatore</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Mangaluru</a> </li>
+  										<li>
+  											<a href="#"> Mangaluru
+  												- Ernakulam</a> </li>
+  										<li>
+  											<a href="#"> KIAL
+  												- Manipal</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Hyderabad</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Shivamogga</a> </li>
+  										<li>
+  											<a href="#"> Mangaluru
+  												- Mysuru</a> </li>
+  										<li>
+  											<a href="#">Bengaluru
+  												- Mumbai</a> </li>
+  										<li>
+  											<a href="#">Bengaluru
+  												- Tirupathi</a> </li>
+  										<li>
+  											<a href="#">
+  												 Bengaluru
+  												- Dharmasthala</a> </li>
+  										<li>
+  											<a href="#"> Mysuru
+  												- Hyderabad</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Pune</a> </li>
+  										<li>
+  											<a href="#">Bengaluru
+  												- Vijayawada</a> </li>
+  										<li>
+  											<a href="#"> Bengaluru
+  												- Belagavi</a> </li>
+  										<li>
+  											<a href="#">Bengaluru
+  												- Chennai</a> </li>
+  										</ul>
+    </div>
+    </div>
+
+    <div class="mySlides2 fade2">
+      <div>
+        <ul class="box">
+          <li>
+    											<a href="#"> Bengaluru
+    												- Shirdi</a> </li>
+    										<li>
+    											<a href="#"> Bengaluru
+    												- Ernakulam</a> </li>
+    										<li>
+    											<a href="#"> Bengaluru
+    												- Hubli</a> </li>
+    										<li>
+    											<a href="#"> Mysuru
+    												- Coimbatore</a> </li>
+    										<li>
+    											<a href="#"> Bengaluru
+    												- Panaji (Goa)</a> </li>
+    										<li>
+    											<a href="#"> Bengaluru
+    												- Kozhikode</a> </li>
+    										<li>
+    											<a href="#">Bengaluru
+    												- Kalaburagi</a> </li>
+    										<li>
+    											<a href="#"> Mysuru
+    												- Mumbai</a> </li>
+    										<li>
+    											<a href="#">Mysuru
+    												- Thiruvananthapuram</a> </li>
+    										<li>
+    											<a href="#"> Mangaluru
+    												- Hyderabad</a> </li>
+    										<li>
+    											<a href="#"> Hubli
+    												- Chennai</a> </li>
+      </ul>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="column2">
+    <h3>News & Events</h3>
+    <div class="holder">
+      <ul id="ticker01">
+    							<li><h4>KSRTC is going to stop temporarily issuing of Blanket and
+					Bedspread in Premium buses w.e.f. 18.03.2020 (in view of COVID-19).
+					Passengers are requested to bring their own Blankets and Bedspread.<br/><hr/></h4></li>
+    							<li><h4>KSRTC wins global recognition again by entering 2 million
+					club in Inter -State and Intra- State Volvo Bus Operation<br/><hr/></h4></li>
+    							<li><h4>For Passengers convenience and comfortable journey,
+					Karnataka State Road Transport Corporation has decided to change
+					the present Call Centre Number (080-49596666) to New Contact Number
+					9449596666 w.e.f. 01.11.2019.<br/><hr/></h4></li>
+    							<li><h3>Guest User Booking.</h3><br/><h4>					The KSRTC has introduced online booking by guest users (unregistered users) to increase the reach of advance...</p>
+</h4></li>
+    							<li><h3>Ticket Printout Not Mandatory</h3><br/><h4>					Karnataka State Road Transport Corporation (KSRTC) has set an example for other transport entities in the coun ...</h4></li>
+    				</ul>
+    </div>
+  </div>
+</div>
+</div>
+<div id="row3">
+<div class="row3">
+  <div class="column3">
+  <h3>Releated Links</h3>
+  <ul>
+						          	<li><a href="http://awatar.ksrtc.in"><i class="fa fa-angle-right" aria-hidden="true"></i> Operator / Franchisee Login</a></li>
+	                			<li><a href="/pages/casual-contract.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Book a Bus</a></li>
+	                			<li><a href="/pages/sutp-its.html"><i class="fa fa-angle-right" aria-hidden="true"></i> World bank funded project </a></li>
+	                			<li><a href="/pages/morth-assisted-vtms-pis-project.html"><i class="fa fa-angle-right" aria-hidden="true"></i> MoRTH Assisted VTMS-PIS project </a></li>
+	               			 	<li><a href="/pages/new-franchisee-procedure.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Become a KSRTC Franchisee </a></li>
+	                			<li><a href="/pages/timetable.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Time Table </a></li>
+	                			<li><a href="/pages/contact-us.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Contact Us</a></li>
+	                		 </ul>
+
+</div>
+  <div class="column3">
+    <h3>About Us</h3>
+  						<ul>
+  							<li><a href="/pages/about-us.html"><i class="fa fa-angle-right" aria-hidden="true"></i> About Us</a></li>
+  								<li><a href="/pages/history.html"><i class="fa fa-angle-right" aria-hidden="true"></i> History </a></li>
+  								<li><a href="/pages/bus-services.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Bus Services</a></li>
+  								<li><a href="/pages/key-statistics.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Key Statistics </a></li>
+  								<li><a href="/pages/labour-welfare.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Labour Welfare </a></li>
+  								<li><a href="/pages/infrastructure-facility.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Infrastructure & Facility </a></li>
+  					            <li><a href="/pages/procurement.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Procurement</a></li>
+  					            <li><a href="/pages/annual-administration-report.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Annual Administration Report </a></li>
+  					            <li><a href="/pages/passenger-safety.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Passenger Safety</a></li>
+  					            </ul>
+                      </div>
+  <div class="column3">
+    <h3>Know More About</h3>
+  						<ul>
+  							<li><a href="/pages/letters-circulars.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Letters & Circulars</a></li>
+  								<li><a href="/pages/luggage-rates.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Luggage Rates</a></li>
+  								<li><a href="/pages/reservation-terms.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Reservation terms </a></li>
+  								<li><a href="/pages/guest-users-terms.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Guest Users Terms </a></li>
+  								<li><a href="/pages/refund-rules-and-claims.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Refund Rules and Claims </a></li>
+  								<li><a href="/pages/booking-counters.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Booking Counters  </a></li>
+  					            <li><a href="/pages/passes-concession.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Passes & Concession</a></li>
+  					            <li><a href="/pages/sakala-services.html"><i class="fa fa-angle-right" aria-hidden="true"></i> SAKALA Services</a></li>
+  					        </ul>
+                  </div>
+  <div class="column3">
+
+    <h3>General Info</h3>
+  						<ul>
+  							<li><a href="/pages/news-and-events.html"><i class="fa fa-angle-right" aria-hidden="true"></i> News and Events </a></li>
+  								<li><a href="/pages/tender.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Tender </a></li>
+  					            <li><a href="/pages/recruitment.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Recruitment </a></li>
+  					            <li><a href="http://www.ksrtcjobs.com" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i> Careers</a></li>
+  					            <li><a href="/pages/seniority-list.html"><i class="fa fa-angle-right" aria-hidden="true"></i> Seniority List </a></li>
+  					        <li><a href="https://static.abhibus.com/ks/pdf/FAQs.pdf"><i class="fa fa-angle-right" aria-hidden="true"></i> FAQ</a></li>
+
+  							<div class="footer-social-links">
+  								<a class="facebook-c" href="https://www.facebook.com/KSRTC.Karnataka"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+  								<a class="twitter-c" href="https://twitter.com/KSRTC_Journeys"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                 					</div>
+  						</ul>
+            </div>
+</div>
+</div>
+<div id="bottom">
+  <h5>©2016 Karnataka State Road Transport Corporation. All Rights Reserved.</h5>
+</div>
+</div>
+</div></div>
+
+<style>
+
+</style>
+<div id="id01" class="modal">
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://ksrtc.in/oprs-web/_assets/images/web/logo.png" alt="KSRTC" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="start"><b>Start Location</b></label>
+      <input type="text" placeholder="Start Location" name="start" required class="modal_input" id="autcomplete">
+
+      <label for="destination"><b>Destination</b></label>
+      <input type="text" placeholder="Destination" name="destination" required class="modal_input" id="autocomplete2">
+
+     <label for="time"><b>Dept. Time</b></label>
+      <input type="time" id="time" class="modal_input" name="time" required>
+
+      <label for="date"><b>Date:</b></label>
+       <input type="date" id="date" name="date" class="modal_input" required>
+
+      <button type="submit" class="modal_button" onclick="formSubmit()">Add Bus</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-gFHe51wT86gjBEfTAAvH9dbcShJst-4&libraries=places&callback=initMap"
+        async defer></script>
+
+
+<script>
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+function initMap() {
+  var input1 = document.getElementById('autcomplete');
+  var autocomplete = new google.maps.places.Autocomplete(input1);
+  autocomplete.addListener('place_changed1', function() {
+    var place = autocomplete.getPlace();
+    var address = '';
+    if (!place.geometry) {
+      window.alert("Autocomplete's returned place contains no geometry");
+      return;
+    }
+    if (place.address_components) {
+      address = [
+        (place.address_components[0] && place.address_components[0].short_name || ''),
+        (place.address_components[1] && place.address_components[1].short_name || ''),
+        (place.address_components[2] && place.address_components[2].short_name || '')
+      ].join(' ');
+    }
+  });
+
+  var input2 = document.getElementById('autocomplete2');
+  var autocomplete2 = new google.maps.places.Autocomplete(input2);
+  autocomplete.addListener('place_changed2', function() {
+  });
+}
+
+arr = [];
+arr = JSON.parse(localStorage.getItem("array"));
+if(arr != null){
+for(var i = 0; i < arr.length; i++){
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+ var cell2 = row.insertCell(1);
+ var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+var cell5 = row.insertCell(4);
+cell1.innerHTML = arr.length - i;
+cell2.innerHTML = arr[i].start;
+cell3.innerHTML = arr[i].destination;
+cell4.innerHTML = arr[i].date;
+cell5.innerHTML = arr[i].time;
+}
+}
+
+var object ={};
+function formSubmit(){
+  var start = document.getElementById('autcomplete').value;
+  var destination = document.getElementById('autocomplete2').value;
+  var time = document.getElementById('time').value;
+  var date = document.getElementById('date').value;
+  object= {start: start, destination: destination, time: time, date: date};
+  arr = [];
+  arr = JSON.parse(localStorage.getItem("array"));
+  if(arr == null){
+    var array = [object];
+    localStorage.setItem("array", JSON.stringify(array));
+    arr = [];
+    arr = JSON.parse(localStorage.getItem("array"));
+    console.log(arr);
+    window.alert("Added");
+  }
+  else{
+    arr.push(object);
+    localStorage.setItem("array", JSON.stringify(arr));
+    arr = [];
+    arr = JSON.parse(localStorage.getItem("array"));
+    console.log(arr);
+    window.alert("Added");
+  }
+  location.reload();
+  var modal = document.getElementById('id01');
+  modal.style.display = "none";
+}
+/*var person = {firstName:"John", lastName:"Doe", age:46};
+var array = [person];
+localStorage.setItem("array", JSON.stringify(array));
+arr = [];
+arr = JSON.parse(localStorage.getItem("array"));
+for(var i = 0; i < arr.length; i++){
+  window.alert(arr[i].age);
+}
+console.log(typeof arr);
+window.alert(arr);
+console.log(arr);
+*/
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<script>
+
+function largeFont(){
+  document.querySelector("body").style.cssText = "--size: 20px";
+}
+function mediumFont(){
+  document.querySelector("body").style.cssText = "--size: 18px";
+}
+function smallFont(){
+  document.querySelector("body").style.cssText = "--size: 16px";
+}
+function myFunction() {
+  var x = document.getElementById("navBar");
+  if (x.className === "navBar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navBar";
+  }
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
+var slideIndex2= 0;
+showSlides2();
+function showSlides2() {
+  var i;
+  var slides2 = document.getElementsByClassName("mySlides2");
+  for (i = 0; i < slides2.length; i++) {
+    slides2[i].style.display = "none";
+  }
+  slideIndex2++;
+  if (slideIndex2 > slides2.length) {slideIndex2 = 1}
+  slides2[slideIndex2-1].style.display = "block";
+  setTimeout(showSlides2, 5000); // Change image every 2 seconds
+}
+
+jQuery.fn.liScroll = function(settings) {
+	settings = jQuery.extend({
+		travelocity: 0.03
+		}, settings);
+		return this.each(function(){
+				var $strip = jQuery(this);
+				$strip.addClass("newsticker")
+				var stripHeight = 1;
+				$strip.find("li").each(function(i){
+					stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
+				});
+				var $mask = $strip.wrap("<div class='mask'></div>");
+				var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");
+				var containerHeight = $strip.parent().parent().height();	//a.k.a. 'mask' width
+				$strip.height(stripHeight);
+				var totalTravel = stripHeight;
+				var defTiming = totalTravel/settings.travelocity;	// thanks to Scott Waye
+				function scrollnews(spazio, tempo){
+				$strip.animate({top: '-='+ spazio}, tempo, "linear", function(){$strip.css("top", containerHeight); scrollnews(totalTravel, defTiming);});
+				}
+				scrollnews(totalTravel, defTiming);
+				$strip.hover(function(){
+				  jQuery(this).stop();
+				},
+				function(){
+				  var offset = jQuery(this).offset();
+				  var residualSpace = offset.top + stripHeight;
+				  var residualTime = residualSpace/settings.travelocity;
+				  scrollnews(residualSpace, residualTime);
+				});
+		});
+};
+$(function(){
+    $("ul#ticker01").liScroll();
+});
+
+function sc(){
+  document.querySelector('body').style.cssText = '--m-bgcolor: #fff';
+  document.getElementById('in_body').style.cssText = '--bg-Color: rgb(238,121,48)';
+  document.getElementById('in_body_2').style.cssText = '--Color: orange';
+  document.getElementById('in_body_3').style.cssText = '--blue: rgb(16,46,88)';
+  document.getElementById('form_fields').style.cssText = '--blue-back: rgb(16,46,88)';
+  document.getElementById('in_form').style.cssText = '--head-Colors: rgb(16,46,88)';
+  document.getElementById('navBar').style.cssText = '--nav-Color: rgb(238,121,48)';
+  document.getElementById('row2').style.cssText = '--bg-rowColor: #eee';
+}
+
+function hc(){
+  document.querySelector('body').style.cssText = '--m-bgcolor: #000';
+  document.getElementById('in_body').style.cssText = '--bg-Color: rgb(256,256,256)';
+  document.getElementById('in_body_2').style.cssText = '--Color: #fff';
+  document.getElementById('in_body_3').style.cssText = '--blue: #fff';
+  document.getElementById('form_fields').style.cssText = '--blue-back: #000';
+  document.getElementById('in_form').style.cssText = '--head-Colors: #fff';
+  document.getElementById('navBar').style.cssText = '--nav-Color: rgb(0,0,0)';
+  document.getElementById('row2').style.cssText = '--bg-rowColor: #262626';
+}
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
